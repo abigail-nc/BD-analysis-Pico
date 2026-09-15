@@ -1,0 +1,339 @@
+---
+title: "Análisis de bases de datos climáticas para el clima en alta montaña en Veracruz"
+author: "D. Abigail López-Mora"
+format: pdf
+lang: es
+toc-title: "Contenido"
+toc: true
+toc-depth: 2
+toccolor: black
+---
+
+
+::: {.callout-tip}
+Esta fase del proyecto es, hasta el momento, de acceso abierto y puede consultarse en [este repositorio](https://github.com/abigail-nc/BD-analysis-Pico).
+:::
+
+
+# Introducción
+< Escribir los antecedentes del trabajo de reconstrucción climática >
+
+## Problema a abordar
+
+## Justificación del proyectos
+
+## Objetivos
+
+### Objetivo general
+Analizar la representatividad de diferentes bases de datos climáticas con diferentes resoluciones espaciales y temporales para el clima de alta montaña en Veracruz
+
+### Objetivos específicos
+1. Identificar cuáles son las bases de datos que contienen información relevante para el sitio de estudio
+2. Analizar el clima de la región utilizando datos de las estaciones climatológicas del Servicio Meteorológico Nacional
+3. Evaluar la representatividad que tiene cada una de las bases de datos para el área de estudio
+
+## Preguntas de investigación e hipótesis
+a. P: ¿Cuáles son las bases de datos que contienen información relevante para el clima de alta montaña en Veracruz? <br> H: Las bases de datos que contienen mayor información relevante para el clima de alta montaña son las de corte regional y/o nacional, aunque varias de estas fuentes de información tienen errores.
+
+b. P: ¿Cuál es la calidad de las bases de datos descargadas? <br> H: Las bases de datos, especialmente las regionales y nacionales, tienen menor cálidad que las provenientes de fuentes internacionales. Sin embargo, estos "huecos" en la información pueden ser rellenados con métodos estadísticos.
+
+c. P: ¿Qué nivel de representatividad tiene cada una de las bases de datos para el área de estudio? <br> H: La mayor parte de las bases de datos tiene una buena representación del clima de la región de estudio. Esta información puede ser evaluada con técnicas/parámetros estadísticos.
+
+# Metodología
+
+## Sobre la zona de estudio
+
+Se construyó un dominio con radio de 0.5°(~55.5 km.) alrededor del Pico de Orizaba cuyas coordenadas son 19.03N, 97.26°O. De lo anterior, el área de estudio quedó comprendida entre las coordenadas [...]. 
+
+Posterior a ello, se descargaron los datos del ECMWF Reanalysis v5 con resolución temporal mensual y espacial de 0.25°(~27.75 km.) en el periodo comprendido de 1950 a 2025 para las variables temperatura a dos metros y precipitación total. Por otro lado, los datos que se utilizaron como referencia fueron los provenientes de la climatología diaria del Servicio  Meteorológico Nacional (SMN), los cuales son datos puntuales para 106 estaciones cuya distribución espacial se muestran a continuación:
+
+
+
+## Bases de datos a evaluar
+
+### Estaciones climatológicas del Servicio Meteorológico Nacional
+
+
+
+
+### ECMWF Reanalysis v5 (ERA5)
+
+
+
+
+### Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS)
+
+
+
+### Climatologies at High resolution for the Earth's Land Surface Areas (CHELSA)
+
+
+**Cuadro 1: Resumen de las fuentes de datos a evaluar**
+
+| Nombre de la base de datos                                                   	| Fecha de inicio        	| Fecha final             	| Resolución temporal 	| Resolución espacial                                               	| Formato de descarga               	|
+|------------------------------------------------------------------------------	|------------------------	|-------------------------	|---------------------	|-------------------------------------------------------------------	|-----------------------------------	|
+| Estaciones climatológicas del SMN                                            	| Varía en cada estación 	| Varía en cada estación  	| Diaria              	| No aplica                                                         	| Archivo separado por comas (.csv) 	|
+| ECMWF Reanalysis v5 (ERA5)                                                   	| 1 de enero de 1950     	| 31 de diciembre de 2025 	| Mensual             	| Reanalysis: 0.25° x 0.25° (atmosphere), 0.5° x 0.5° (ocean waves) 	| NetCDF (.nc)                      	|
+| Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS)      	|                        	|                         	|                     	|                                                                   	| NetCDF (.nc)                      	|
+| Climatologies at High resolution for the Earth's Land Surface Areas (CHELSA) 	|                        	|                         	|                     	|                                                                   	| Malla de datos (.tiff)            	|
+
+
+
+::: {.callout-warning}
+
+Incluir una tabla de la descripción de cada una de las bases de datos que se va a evaluar (revisar tablero en notion que está completo)
+
+:::
+
+
+## Reconstrucción del clima (rellenado de los "huecos" de información) 
+
+:::{callout-warning}
+Este tema puede ocuparse cómo trabajo recepcional 2.0. En este caso, serían dos:
+El primero que es el actual, o sea evaluación de las bases de datos
+El segundo sería la reconstrucción climática para la región 
+:::
+
+
+## Análisis estadístico de las bases de datos
+
+
+
+
+# Resultados
+
+## Evaluación de la base de datos ECMWF Reanalysis v5 (ERA5)
+![Mapa de calor de disponibilidad de registros de temperatura media mensual (°C). Imágen de creación propia](./03_OUTPUTS/Imagenes/time_serie_t2m/Heatmap_ERA5vsSMN_t2m.png)
+
+![Mapa de calor de disponibilidad e registros de precipitación (mm)](./03_OUTPUTS/Imagenes/time_serie_tp/Heatmap_ERA5vsSMN_tp.png)
+
+
+
+/newpage
+# Anexo 1: Resultados *in extenso* de la evaluación de los datos ECMWF Reanalysis v5 (ERA5)
+
+Los archivos con el código para recrear estas imágenes y análisis puede encontrarse en [este repositorio](https://github.com/abigail-nc/BD-analysis-Pico) de acceso libre.
+
+
+## Precipitación 
+
+### Series de tiempo de precipitación
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21020](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21020_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21023](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21023_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21025](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21025_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21026](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21026_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21027](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21027_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21031](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21031_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21033](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21033_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21038](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21038_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21039](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21039_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21040](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21040_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21052](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21052_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21053](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21053_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21056](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21056_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21060](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21060_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21067](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21067_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21072](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21072_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21073](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21073_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21077](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21077_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21079](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21079_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21080](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21080_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21081](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21081_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21082](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21082_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21093](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21093_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21095](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21095_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21100](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21100_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21105](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21105_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21117](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21117_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21119](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21119_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21145](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21145_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21154](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21154_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21157](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21157_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21158](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21158_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21159](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21159_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21161](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21161_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21170](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21170_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21171](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21171_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21173](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21173_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21182](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21182_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21184](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21184_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21200](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21200_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21221](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21221_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21226](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21226_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 21244](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_21244_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 29007](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_29007_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30004](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30004_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30010](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30010_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30015](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30015_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30017](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30017_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30026](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30026_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30030](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30030_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30032](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30032_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30036](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30036_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30042](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30042_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30052](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30052_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30053](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30053_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30061](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30061_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30066](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30066_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30072](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30072_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30075](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30075_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30085](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30085_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30087](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30087_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30100](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30100_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30115](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30115_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30119](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30119_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30120](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30120_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30140](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30140_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30151](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30151_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30155](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30155_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30156](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30156_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30164](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30164_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30175](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30175_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30177](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30177_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30178](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30178_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30179](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30179_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30181](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30181_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30186](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30186_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30187](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30187_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30195](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30195_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30198](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30198_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30200](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30200_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30206](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30206_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30209](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30209_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30210](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30210_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30212](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30212_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30227](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30227_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30228](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30228_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30238](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30238_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30241](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30241_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30259](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30259_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30274](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30274_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30296](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30296_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30299](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30299_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30311](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30311_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30316](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30316_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30330](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30330_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30336](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30336_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30342](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30342_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30366](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30366_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30387](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30387_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30391](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30391_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30395](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30395_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30452](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30452_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30453](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30453_tp.png){width=50%}
+![Serie de tiempo de registros de precipitación del SMN vs ERA5 para la estación 30486](./03_OUTPUTS/Imagenes/time_serie_tp/Serie_ERA5vsSMN_30486_tp.png){width=50%}
+### Diagramas de dispersión
+
+
+
+## Temperatura media
+
+
+### Series de tiempo
+
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21020](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21020_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21023](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21023_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21025](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21025_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21026](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21026_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21027](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21027_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21031](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21031_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21033](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21033_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21038](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21038_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21039](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21039_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21040](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21040_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21052](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21052_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21053](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21053_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21056](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21056_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21060](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21060_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21067](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21067_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21072](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21072_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21073](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21073_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21077](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21077_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21079](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21079_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21080](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21080_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21081](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21081_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21082](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21082_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21093](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21093_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21095](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21095_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21100](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21100_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21105](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21105_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21117](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21117_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21119](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21119_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21145](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21145_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21154](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21154_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21157](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21157_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21158](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21158_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21159](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21159_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21161](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21161_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21170](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21170_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21171](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21171_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21173](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21173_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21182](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21182_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21184](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21184_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21200](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21200_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21221](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21221_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21226](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21226_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 21244](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_21244_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 29007](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_29007_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30004](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30004_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30010](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30010_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30015](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30015_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30017](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30017_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30026](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30026_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30030](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30030_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30032](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30032_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30036](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30036_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30042](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30042_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30052](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30052_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30053](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30053_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30061](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30061_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30066](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30066_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30072](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30072_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30075](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30075_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30085](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30085_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30087](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30087_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30100](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30100_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30115](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30115_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30119](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30119_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30120](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30120_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30140](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30140_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30151](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30151_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30155](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30155_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30156](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30156_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30164](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30164_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30175](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30175_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30177](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30177_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30178](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30178_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30179](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30179_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30181](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30181_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30186](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30186_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30187](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30187_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30195](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30195_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30198](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30198_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30200](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30200_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30206](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30206_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30209](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30209_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30210](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30210_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30212](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30212_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30227](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30227_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30228](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30228_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30238](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30238_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30241](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30241_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30259](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30259_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30274](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30274_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30296](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30296_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30299](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30299_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30311](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30311_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30316](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30316_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30330](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30330_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30336](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30336_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30342](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30342_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30366](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30366_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30387](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30387_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30391](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30391_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30395](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30395_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30452](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30452_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30453](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30453_t2m.png){width=50%}
+![Serie de tiempo de registros de temperatura del SMN vs ERA5 para la estación 30486](./03_OUTPUTS/Imagenes/time_serie_t2m/Serie_ERA5vsSMN_30486_t2m.png){width=50%}
+
+### Diagramas de dispersión
