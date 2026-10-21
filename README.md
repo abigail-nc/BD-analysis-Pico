@@ -1,16 +1,38 @@
-## Análisis de bases de datos climáticas para el Pico de Orizaba
 
-Este repositorio resguarda los scripts utilizados y los productos generados en cada parte del proceso de análisis de bases de datos climáticas para el Pico de Orizaba (considerando un radio de 50 km). Cada base de datos descrita a continuación, se comparó con los **datos de la climatología diaria** del Servicio Meteorológico nacional para las estaciones descritas en [este documento](./03_OUTPUTS/00_BD_info_estacs.csv)
+## Análisis de Bases de Datos Climáticas para la Región del Pico de Orizaba
+
+Este repositorio resguarda los scripts de análisis, el flujo de trabajo computacional y los criterios metodológicos para la descarga, homogeneización, limpieza y recorte de bases de datos climáticas globales y nacionales aplicadas a la región de alta montaña del Pico de Orizaba, México.
+
+El área de estudio está delimitada por un dominio cuadrangular con un radio aproximado de 50 km alrededor del Citlaltépetl, abarcando las coordenadas geográficas de longitud -97.72501° a -96.775° E y latitud 18.575° a 19.52499° N.
+
+### 📊 Estado de los Módulos de Datos
+
+La información y el código de procesamiento se organizan según su estatus actual de validación y publicación oficial:
+
+#### 🟢 Publicadas (con registro oficial)
+
+• CHIRPS (Daily):
+	• Malla de precipitación diaria acumulada (1981-2021) en formato NetCDF (.nc) a resolución de 0.05° (~5 km).
+	• Dataset alojado de forma abierta en Zenodo: 
+	• Consulta el código y los detalles de descarga en el [README específico de CHIRPS](./02_SCRIPTS/CHIRPS/README_CHIRPS.md).
+
+#### 🟡 En validación
 
 
-
-### Descripción de las bases de datos
-
-| Base de datos | Descripción | Resolución espacial | Resolución temporal | Fecha de inicio | Fecha de término | Se decarga con... | Prodcuctos obtenidos | 
-|---------------|-------------|---------------------|---------------------|-----------------|------------------|-------------------|----------------------|
-| ERA5 monthly averaged data on single levels from 1940 to present | Reanálisis promedios mensuales | Reanalysis: 0.25° x 0.25° (atmosphere), 0.5° x 0.5° (ocean waves)| Mensual | 01 de enero de 1950 | 31 de diciembre de 205 | Desde la [Copernicus Data Store](https://cds.climate.copernicus.eu/datasets)| * [Datos ERA5 mensuales para cada estación para temperatura media](./03_OUTPUTS/ERA5_interpolados/t2m/) <br> * [Datos ERA5 mensuales para cada estación para precipitación mm/dia](./03_OUTPUTS/ERA5_interpolados/tp/)<br> * [Agregados mensuales del SMN de temperatura media mensual y precipitación diaria](./03_OUTPUTS/SMN_mensuales/)<br> * [Mapa de calor de disponibilidad y coincidencia de información ERA5 vs SMN para temperatura](./03_OUTPUTS/Imagenes/time_serie_t2m/Heatmap_ERA5vsSMN_t2m.png)<br> * [Mapa de calor de disponibilidad y coincidencia de información ERA5 vs SMN para precipitación](./03_OUTPUTS/Imagenes/time_serie_tp/Heatmap_ERA5vsSMN_tp.png)<br> * [Gráfico de series de tiempo del ERA5 y SMN para temperatura](./03_OUTPUTS/Imagenes/time_serie_t2m/)<br> * [Gráfico de series de tiempo del ERA5 y SMN para precipitación](./03_OUTPUTS/Imagenes/time_serie_tp/)<br> * [Gráficos de dispersión ERA5 vs SMN para temperatura](./03_OUTPUTS/Imagenes/dispersion_t2m/)<br> * [Gráficos de dispersión ERA5 vs SMN para precipitación](./03_OUTPUTS/Imagenes/dispersion_tp/)<br> * [Cálculo de errores para cada estación para temperatura](./03_OUTPUTS/metricas_ERA5vsSMN_t2m.csv)<br>|
+• SMN (Daily): Datos observacionales diarios de estaciones meteorológicas superficiales en tierra, limpios y formateados.
+• ERA5 (Monthly): Reanálisis global de promedios mensuales (1950-2025) para temperatura media (t2m) y precipitación (tp).
 
 
-### Sobre las estaciones del SMN
+#### En proceso
+• CHELSA (Daily): Climatologías diarias de alta resolución corregidas por topografía.
 
-Para conocer información adicional sobre todas las estaciones utilizadas en este proyecto, [consulta este documento](./03_OUTPUTS/00_BD_info_estacs.csv)
+
+#### Por iniciar
+• Daymet: Datos climáticos diarios estimados por interpolación topográfica.
+• ERA5-Land: Reanálisis terrestre global por horas de mayor resolución espacial.
+
+
+### Infraestructura Técnica
+
+• **R**: Procesamiento estadístico, análisis de series de tiempo, cálculo de métricas de error y generación de gráficos.
+• **Shell + Python**: Descarga automatizada, manipulación, acoplamiento temporal y recorte espacial de archivos masivos NetCDF.
