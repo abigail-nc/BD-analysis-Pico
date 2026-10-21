@@ -1,6 +1,7 @@
-# ---
+# --- bash
 # Este script convierte los archivo tif a netCDF
-# Última actualización 
+# Última actualización: 05 de octubre de 2026
+# DALM
 
 wdir=~/PhD_Pico/01_INPUT/03_CHELSA
 
