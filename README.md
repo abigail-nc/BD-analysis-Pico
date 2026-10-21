@@ -12,7 +12,7 @@ La información y el código de procesamiento se organizan según su estatus act
 #### 🟢 Publicadas (con registro oficial)
 
 * CHIRPS (Daily):
-* 
+  
 	* Malla de precipitación diaria acumulada (1981-2021) en formato NetCDF (.nc) a resolución de 0.05° (~5 km).
 
 	* Dataset alojado de forma abierta en [Zenodo](https://zenodo.org/records/23539068)
