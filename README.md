@@ -11,28 +11,34 @@ La información y el código de procesamiento se organizan según su estatus act
 
 #### 🟢 Publicadas (con registro oficial)
 
-• CHIRPS (Daily):
-	• Malla de precipitación diaria acumulada (1981-2021) en formato NetCDF (.nc) a resolución de 0.05° (~5 km).
-	• Dataset alojado de forma abierta en [Zenodo](https://zenodo.org/records/23539068)
-	• Consulta el código y los detalles de descarga en el [README específico de CHIRPS](./02_SCRIPTS/CHIRPS/README_CHIRPS.md).
+* **CHIRPS (Daily)**:
+
+	* Malla de precipitación diaria acumulada (1981-2021) en formato NetCDF (.nc) a resolución de 0.05° (~5 km).
+
+	* Dataset alojado de forma abierta en [Zenodo](https://zenodo.org/records/23539068)
+
+	* Consulta el código y los detalles de descarga en el [README específico de CHIRPS](./02_SCRIPTS/CHIRPS/README_CHIRPS.md).
 
 #### 🟡 En validación
 
 
-• SMN (Daily): Datos observacionales diarios de estaciones meteorológicas superficiales en tierra, limpios y formateados.
-• ERA5 (Monthly): Reanálisis global de promedios mensuales (1950-2025) para temperatura media (t2m) y precipitación (tp).
+* **SMN (Daily)**: Datos observacionales diarios de estaciones meteorológicas superficiales en tierra, limpios y formateados.
+
+* **ERA5 (Monthly)**: Reanálisis global de promedios mensuales (1950-2025) para temperatura media (t2m) y precipitación (tp).
 
 
 #### En proceso
-• CHELSA (Daily): Climatologías diarias de alta resolución corregidas por topografía.
+* **CHELSA (Daily)**: Climatologías diarias de alta resolución corregidas por topografía.
 
 
 #### Por iniciar
-• Daymet: Datos climáticos diarios estimados por interpolación topográfica.
-• ERA5-Land: Reanálisis terrestre global por horas de mayor resolución espacial.
+* **Daymet**: Datos climáticos diarios estimados por interpolación topográfica.
+
+* **ERA5-Land**: Reanálisis terrestre global por horas de mayor resolución espacial.
 
 
 ### Infraestructura Técnica
 
-• **R**: Procesamiento estadístico, análisis de series de tiempo, cálculo de métricas de error y generación de gráficos.
-• **Shell + Python**: Descarga automatizada, manipulación, acoplamiento temporal y recorte espacial de archivos masivos NetCDF.
+* **R**: Procesamiento estadístico, análisis de series de tiempo, cálculo de métricas de error y generación de gráficos.
+
+* **Shell + Python**: Descarga automatizada, manipulación, acoplamiento temporal y recorte espacial de archivos masivos NetCDF.
