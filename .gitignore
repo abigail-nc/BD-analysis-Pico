@@ -2,3 +2,8 @@
 .Rproj.user
 .venv
 01_INPUT
+02_SCRIPTS/estac_coord_or.txt
+02_SCRIPTS/interp_vars_WRF.gs
+03_OUTPUTS/02_CHIRPS/00_mallas-cut
+03_OUTPUTS/02_CHIRPS/01_extrac_estacs
+
